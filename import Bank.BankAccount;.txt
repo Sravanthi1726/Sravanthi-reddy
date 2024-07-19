@@ -1,0 +1,21 @@
+package ATM;
+
+import Bank.BankAccount;
+
+public class specialATM extends BankAccount {
+	public specialATM(String accountNumber, String 
+			accountHolderName, double initialBalance) {
+			super(accountNumber, accountHolderName, initialBalance);
+			}
+
+
+    public void SpecialATM(double initialBalance) {
+       
+    }
+
+    public void specialDeposit(double amount) {
+        // Accessing the protected method from the superclass
+        deposit(amount);
+        System.out.println("Current Balance after special deposit: " + getBalance());
+    }
+}
