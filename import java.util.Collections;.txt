@@ -1,0 +1,79 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+// Define the Student class
+class Student {
+    private String name;
+    private int id;
+    private double gpa;
+
+    // Constructor
+    public Student(String name, int id, double gpa) {
+        this.name = name;
+        this.id = id;
+        this.gpa = gpa;
+    }
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", gpa=" + gpa +
+                '}';
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an ArrayList to hold Student objects
+        ArrayList<Student> students = new ArrayList<>();
+
+        // Add 10 Student objects to the ArrayList
+        students.add(new Student("Teja", 9, 3.8));
+        students.add(new Student("Akhila", 5, 3.6));
+        students.add(new Student("Sravanthi", 3, 3.7));
+        students.add(new Student("Srinu", 1, 3.9));
+        students.add(new Student("Swpna", 8, 4.0));
+        students.add(new Student("Honey", 2, 3.5));
+        students.add(new Student("Rishi", 7, 3.4));
+        students.add(new Student("Purna", 4, 3.3));
+        students.add(new Student("Divya", 6, 3.2));
+        students.add(new Student("Raju", 10, 3.1));
+
+        // Sort by ID
+        System.out.println("Sorting by ID:");
+        Collections.sort(students, Comparator.comparingInt(Student::getId));
+        for (Student student : students) {
+            System.out.println(student);
+        }
+
+        // Sort by Name
+        System.out.println("\nSorting by Name:");
+        Collections.sort(students, Comparator.comparing(Student::getName));
+        for (Student student : students) {
+            System.out.println(student);
+        }
+
+        // Sort by GPA
+        System.out.println("\nSorting by GPA:");
+        Collections.sort(students, Comparator.comparingDouble(Student::getGpa));
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+}
