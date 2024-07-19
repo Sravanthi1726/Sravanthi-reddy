@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+// Abstract class Shape
+abstract class Shape {
+    // Abstract method for calculation
+    public abstract void calculate();
+}
+
+// Subclass Rectangle extending Shape
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    // Constructor
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Implementation of calculate method for rectangle area
+    @Override
+    public void calculate() {
+        double area = length * width;
+        System.out.println("Area of Rectangle: " + area);
+    }
+}
+
+// Subclass Circle extending Shape
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementation of calculate method for circle area
+    @Override
+    public void calculate() {
+        double area = Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + area);
+    }
+}
+
+// Main class to demonstrate the functionality
+public class ShapeDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Getting inputs and creating a rectangle
+        System.out.print("Enter the length of the rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter the width of the rectangle: ");
+        double width = scanner.nextDouble();
+        Shape rectangle = new Rectangle(length, width);
+        rectangle.calculate();
+
+        System.out.println();
+
+        // Getting inputs and creating a circle
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+        Shape circle = new Circle(radius);
+        circle.calculate();
+
+        // Closing the scanner
+        scanner.close();
+    }
+}
