@@ -1,0 +1,28 @@
+public class Employee {
+    // Static variables
+    static int eid;
+    static String ename;
+    static String companyname;
+
+    // Static method to set employee details
+    public static void setEmployeeDetails(int id, String name, String company) {
+        eid = id;
+        ename = name;
+        companyname = company;
+    }
+
+    // Static method to display employee details
+    public static void displayEmployeeDetails() {
+        System.out.println("Employee ID: " + eid);
+        System.out.println("Employee Name: " + ename);
+        System.out.println("Company Name: " + companyname);
+    }
+
+    public static void main(String[] args) {
+        // Set employee details using the static method
+        setEmployeeDetails(101, "John Doe", "OpenAI");
+
+        // Display employee details using the static method
+        displayEmployeeDetails();
+    }
+}
