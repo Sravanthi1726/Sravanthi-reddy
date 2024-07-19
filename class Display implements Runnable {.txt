@@ -1,0 +1,89 @@
+class Display implements Runnable {
+    @Override
+    public void run() {
+        show();
+    }
+
+    public void show() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("hai");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Display thread interrupted.");
+            }
+        }
+    }
+}
+
+class Msg implements Runnable {
+    @Override
+    public void run() {
+        show();
+    }
+
+    public void show() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("welcome");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Msg thread interrupted.");
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Main thread starting.");
+
+        Display display = new Display();
+        Msg msg = new Msg();
+
+        Thread thread1 = new Thread(display);
+        Thread thread2 = new Thread(msg);
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+
+        System.out.println("Main thread ending.");
+    }
+}
+
+
+
+
+
+//output:
+// Microsoft Windows [Version 10.0.22621.3737]
+// (c) Microsoft Corporation. All rights reserved.
+
+// C:\Users\adithya>d:
+
+// D:\>cd anudip
+
+// D:\anudip>javac Main.java
+
+// D:\anudip>java Main
+// Main thread starting.
+// hai
+// welcome
+// hai
+// welcome
+// welcome
+// hai
+// hai
+// welcome
+// welcome
+// hai
+// Main thread ending.
+
+//D:\anudip>
