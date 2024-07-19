@@ -1,0 +1,62 @@
+interface BankingInterface {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double getBalance();
+}
+class SavingsAccount implements BankingInterface {
+    private double balance;
+
+    public SavingsAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println(amount + " deposited. Current balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println(amount + " withdrawn. Current balance: " + balance);
+        } else {
+            System.out.println("Invalid withdraw amount or insufficient funds.");
+        }
+    }
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+}
+class CurrentAccount implements BankingInterface {
+    private double balance;
+
+    public CurrentAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println(amount + " deposited. Current balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println(amount + " withdrawn. Current balance: " + balance);
+        } else {
+          System.out.println(" Invalid deposit amount.");
+  
