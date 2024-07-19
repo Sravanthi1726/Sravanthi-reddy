@@ -1,0 +1,9 @@
+package Bank;
+public class BankManager {
+    public void printAccountDetails(BankAccount account) {
+
+        System.out.println("Account Number: " + account.accountNumber);
+        System.out.println("Account Holder: " + account.accountHolderName);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
