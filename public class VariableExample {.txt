@@ -1,0 +1,19 @@
+public class VariableExample {
+    public static void main(String[] args) {
+        // Declaration and initialization of variables
+        int intValue = 10;
+        double doubleValue = 20.5;
+        float floatValue = 15.3f;
+        char charValue = 'A';
+        boolean booleanValue = true;
+        String stringValue = "Hello, world!";
+        
+        // Printing values of variables
+        System.out.println("Integer Value: " + intValue);
+        System.out.println("Double Value: " + doubleValue);
+        System.out.println("Float Value: " + floatValue);
+        System.out.println("Character Value: " + charValue);
+        System.out.println("Boolean Value: " + booleanValue);
+        System.out.println("String Value: " + stringValue);
+    }
+}
