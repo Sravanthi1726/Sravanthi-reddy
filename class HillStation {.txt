@@ -1,0 +1,80 @@
+class HillStation {
+    // Method to be overridden
+    public void location() {
+        System.out.println("Location of Hill Station.");
+    }
+
+    // Method to be overridden
+    public void famousFor() {
+        System.out.println("Famous for something.");
+    }
+}
+
+// Subclass Manali
+class Manali extends HillStation {
+    // Overriding location method
+    @Override
+    public void location() {
+        System.out.println("Manali is located in Himachal Pradesh.");
+    }
+
+    // Overriding famousFor method
+    @Override
+    public void famousFor() {
+        System.out.println("Manali is famous for its scenic beauty and adventure sports.");
+    }
+}
+
+// Subclass Mussoorie
+class Mussoorie extends HillStation {
+    // Overriding location method
+    @Override
+    public void location() {
+        System.out.println("Mussoorie is located in Uttarakhand.");
+    }
+
+    // Overriding famousFor method
+    @Override
+    public void famousFor() {
+        System.out.println("Mussoorie is famous for its waterfalls and scenic views.");
+    }
+}
+
+// Subclass Gulmarg
+class Gulmarg extends HillStation {
+    // Overriding location method
+    @Override
+    public void location() {
+        System.out.println("Gulmarg is located in Jammu and Kashmir.");
+    }
+
+    // Overriding famousFor method
+    @Override
+    public void famousFor() {
+        System.out.println("Gulmarg is famous for its ski resorts and natural beauty.");
+    }
+}
+
+public class HillStationDemo {
+    public static void main(String[] args) {
+        // Creating references of the superclass and objects of the subclasses
+        HillStation hill1 = new Manali();
+        HillStation hill2 = new Mussoorie();
+        HillStation hill3 = new Gulmarg();
+
+        // Calling overridden methods
+        System.out.println("Manali:");
+        hill1.location();
+        hill1.famousFor();
+        System.out.println();
+
+        System.out.println("Mussoorie:");
+        hill2.location();
+        hill2.famousFor();
+        System.out.println();
+
+        System.out.println("Gulmarg:");
+        hill3.location();
+        hill3.famousFor();
+    }
+}
