@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+// Define the Student class
+class Student {
+    private String name;
+    private int id;
+    private double gpa;
+    // Constructor
+    public Student(String name, int id, double gpa) {
+        this.name = name;
+        this.id = id;
+        this.gpa = gpa;
+    }
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+    public int getId() {
+        return id;
+    }
+    public double getGpa() {
+        return gpa;
+    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", gpa=" + gpa +
+                '}';
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        // Create an ArrayList to hold Student objects
+        ArrayList<Student> students = new ArrayList<>();
+        // Add 10 Student objects to the ArrayList
+        students.add(new Student("Sravanthi", 1, 3.8));
+        students.add(new Student("Sahani", 2, 3.6));
+        students.add(new Student("Bindu", 3, 3.7));
+        students.add(new Student("Vineetha", 4, 3.9));
+        students.add(new Student("Akhila", 5, 4.0));
+        students.add(new Student("Manasa", 6, 3.5));
+        students.add(new Student("Mayuri", 7, 3.4));
+        students.add(new Student("Vamshi", 8, 3.3));
+        students.add(new Student("Madhu", 9, 3.2));
+        students.add(new Student("Satya", 10, 3.1));
+        // Print the Student objects using a for-each loop
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+}
