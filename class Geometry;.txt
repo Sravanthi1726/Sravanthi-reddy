@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+// Geometry class with overloaded methods
+class Geometry {
+    // Method to calculate the area of a rectangle
+    public static double calculateArea(double length, double width) {
+        return length * width;
+    }
+
+    // Method to calculate the area of a circle
+    public static double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate the volume of a box
+    public static double calculateVolume(double length, double width, double height) {
+        return length * width * height;
+    }
+}
+
+public class GeometryCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            // Display the menu
+            System.out.println("Geometry Calculator");
+            System.out.println("1. Calculate area of a rectangle");
+            System.out.println("2. Calculate area of a circle");
+            System.out.println("3. Calculate volume of a box");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Calculate area of a rectangle
+                    System.out.print("Enter the length of the rectangle: ");
+                    double length = scanner.nextDouble();
+                    System.out.print("Enter the width of the rectangle: ");
+                    double width = scanner.nextDouble();
+                    double rectangleArea = Geometry.calculateArea(length, width);
+                    System.out.println("The area of the rectangle is: " + rectangleArea);
+                    break;
+
+                case 2:
+                    // Calculate area of a circle
+                    System.out.print("Enter the radius of the circle: ");
+                    double radius = scanner.nextDouble();
+                    double circleArea = Geometry.calculateArea(radius);
+                    System.out.println("The area of the circle is: " + circleArea);
+                    break;
+
+                case 3:
+                    // Calculate volume of a box
+                    System.out.print("Enter the length of the box: ");
+                    double boxLength = scanner.nextDouble();
+                    System.out.print("Enter the width of the box: ");
+                    double boxWidth = scanner.nextDouble();
+                    System.out.print("Enter the height of the box: ");
+                    double boxHeight = scanner.nextDouble();
+                    double boxVolume = Geometry.calculateVolume(boxLength, boxWidth, boxHeight);
+                    System.out.println("The volume of the box is: " + boxVolume);
+                    break;
+
+                case 4:
+                    // Exit the program
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Please enter a number between 1 and 4.");
+                    break;
+            }
+
+            System.out.println();
+
+        } while (choice != 4);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
