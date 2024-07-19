@@ -1,0 +1,21 @@
+public class ExceptionHandlingDemo {
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        try {
+            int index = 4; 
+            int element = array[index];
+            System.out.println("Element at index " + index + ": " + element);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+        try {
+            int a = 5;
+            int b = 0;
+            int result = a / b;
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException: " + e.getMessage());
+        }
+    }
+}
