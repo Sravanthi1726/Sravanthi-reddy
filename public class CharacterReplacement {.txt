@@ -1,0 +1,13 @@
+public class CharacterReplacement {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello Everyone";
+        
+        // Replace all occurrences of 'e' with 'a'
+        String replacedStr = str.replace('e', 'a');
+        
+        // Print the replaced string
+        System.out.println("Original string: " + str);
+        System.out.println("After replacement: " + replacedStr);
+    }
+}
