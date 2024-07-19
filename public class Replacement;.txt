@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class ReplaceElement {
+    public static void main(String[] args) {
+        // Create an ArrayList and add some elements
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Akash");
+        list.add("sravs");
+        list.add("Vamshi");
+        list.add("deepu");
+        list.add("Chaithu");
+
+        // Print the original list
+        System.out.println("Original list: " + list);
+        // Replace the second element with the specified element
+        String newElement = "Sai";
+        if (list.size() >= 2) {
+            list.set(1, newElement);
+        } else {
+            System.out.println("The list does not have a second element to replace.");
+        }
+
+        // Print the modified list
+        System.out.println("Modified list: " + list);
+    }
+}
