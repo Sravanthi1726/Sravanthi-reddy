@@ -1,0 +1,24 @@
+public class ReverseString {
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+        char[] charArray = originalString.toCharArray();
+        int left = 0;
+        int right = charArray.length - 1;
+        
+        while (left < right) {
+            // Swap the characters
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            
+            // Move towards the middle
+            left++;
+            right--;
+        }
+        
+        String reversedString = new String(charArray);
+        System.out.println("Original String: " + originalString);
+        System.out.println("Reversed String: " + reversedString);
+    }
+
+}
