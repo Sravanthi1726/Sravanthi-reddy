@@ -1,0 +1,72 @@
+import java.util.Arrays;
+
+class MultiThreadedMergeSort {
+    private int[] array;
+    private int[] tempArray;
+    private int length;
+
+    public void sort(int[] inputArray) {
+        this.array = inputArray;
+        this.length = inputArray.length;
+        this.tempArray = new int[length];
+        doSort(0, length - 1);
+    }
+
+    private void doSort(int lowerIndex, int higherIndex) {
+        if (lowerIndex < higherIndex) {
+            int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+
+            // Parallel sorting using threads
+            Thread leftSorter = new Thread(() -> doSort(lowerIndex, middle));
+            Thread rightSorter = new Thread(() -> doSort(middle + 1, higherIndex));
+
+            leftSorter.start();
+            rightSorter.start();
+
+            try {
+                leftSorter.join();
+                rightSorter.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            mergeParts(lowerIndex, middle, higherIndex);
+        }
+    }
+
+    private void mergeParts(int lowerIndex, int middle, int higherIndex) {
+        System.arraycopy(array, lowerIndex, tempArray, lowerIndex, higherIndex + 1 - lowerIndex);
+
+        int i = lowerIndex;
+        int j = middle + 1;
+        int k = lowerIndex;
+        while (i <= middle && j <= higherIndex) {
+            if (tempArray[i] <= tempArray[j]) {
+                array[k] = tempArray[i];
+                i++;
+            } else {
+                array[k] = tempArray[j];
+                j++;
+            }
+            k++;
+        }
+        while (i <= middle) {
+            array[k] = tempArray[i];
+            k++;
+            i++;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {3, 6, 1, 8, 4, 5, 7, 2};
+        System.out.println("Original Array: " + Arrays.toString(array));
+
+        MultiThreadedMergeSort sorter = new MultiThreadedMergeSort();
+        sorter.sort(array);
+
+        System.out.println("Sorted Array: " + Arrays.toString(array));
+    }
+}
+output:
+Original Array: [3, 6, 1, 8, 4, 5, 7, 2]
+Sorted Array: [1, 2, 3, 4, 5, 6, 7, 8]
