@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class MostFrequentElement {
+    public static int findMostFrequentElement(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Array must not be null or empty");
+        }
+
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        
+        // Count the frequency of each element
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        int mostFrequent = nums[0];
+        int maxFrequency = 0;
+        
+        // Find the element with the highest frequency
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxFrequency) {
+                mostFrequent = entry.getKey();
+                maxFrequency = entry.getValue();
+            }
+        }
+        
+        return mostFrequent;
+    }
+
+    public static void main(String[] args) {
+        int[] input = {1, 3, 2, 2, 5, 2, 3, 4, 1, 1};
+        int result = findMostFrequentElement(input);
+        System.out.println("The most frequent element is: " + result);
+    }
+}
