@@ -1,0 +1,61 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserManager {
+    // Sample data storage
+    private static Map<String, String> usernamePasswordMap = new HashMap<>();
+    private static Map<String, String> emailPasswordMap = new HashMap<>();
+    private static Map<String, String> phonePinMap = new HashMap<>();
+
+    // Static block to initialize sample users
+    static {
+        // Adding some sample users
+        usernamePasswordMap.put("user1", "password123");
+        usernamePasswordMap.put("user2", "password456");
+
+        emailPasswordMap.put("user1@example.com", "password123");
+        emailPasswordMap.put("user2@example.com", "password456");
+
+        phonePinMap.put("1234567890", "1234");
+        phonePinMap.put("0987654321", "5678");
+    }
+
+    // Overloaded method for username and password
+    public static boolean authenticate(String username, String password) {
+        if (usernamePasswordMap.containsKey(username) && usernamePasswordMap.get(username).equals(password)) {
+            return true;
+        }
+        return false;
+    }
+
+    // Overloaded method for email and password
+    public static boolean authenticateByEmail(String email, String password) {
+        if (emailPasswordMap.containsKey(email) && emailPasswordMap.get(email).equals(password)) {
+            return true;
+        }
+        return false;
+    }
+
+    // Overloaded method for phone number and PIN
+    public static boolean authenticateByPhone(String phoneNumber, String pin) {
+        if (phonePinMap.containsKey(phoneNumber) && phonePinMap.get(phoneNumber).equals(pin)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        // Test cases
+        System.out.println("Authenticating by username and password:");
+        System.out.println(authenticate("user1", "password123")); // true
+        System.out.println(authenticate("user2", "wrongpassword")); // false
+
+        System.out.println("\nAuthenticating by email and password:");
+        System.out.println(authenticateByEmail("user1@example.com", "password123")); // true
+        System.out.println(authenticateByEmail("user2@example.com", "wrongpassword")); // false
+
+        System.out.println("\nAuthenticating by phone number and PIN:");
+        System.out.println(authenticateByPhone("1234567890", "1234")); // true
+        System.out.println(authenticateByPhone("0987654321", "wrongpin")); // false
+    }
+}
